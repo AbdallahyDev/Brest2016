@@ -20,8 +20,7 @@ public class TicketControl {
 	
 	@Resource
 	Dao dao;
-	
-	@RequestMapping(value="/identifyTicket",method=RequestMethod.POST)
+	@RequestMapping(value="/connection",method=RequestMethod.POST)
 	public @ResponseBody Resultat identifyTicket(
 			@RequestBody @Valid Ticket ticket, BindingResult bres) {
 		System.out.println("ticket code = "+ticket.getId());
@@ -32,9 +31,10 @@ public class TicketControl {
 		//c.setPrenom(client.getPrenom());
 		
 		if(res.getRes().equals("SUCCESS")) {
-			
+			System.out.println("ticket code = "+ticket.getId());
 			dao.identifyTicket(ticket.getId());
-		}
+		}else
+			System.out.println("ticket code = ");
 		
 		
 		

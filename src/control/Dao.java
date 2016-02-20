@@ -23,7 +23,7 @@ public class Dao {
 	
 	public Boolean identifyTicket(int id){
 		
-		List <Ticket> lst = em.createQuery("select t from Ticket t where t.id=id ").getResultList();
+		List <Ticket> lst = em.createQuery("select t from Ticket t ").getResultList();
 		if(lst!=null)
 			return true;
 		else
