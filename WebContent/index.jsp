@@ -2,5 +2,5 @@
     pageEncoding="ISO-8859-1"%>
     
 <%
-response.sendRedirect("listerAnimation.htm");
+response.sendRedirect("connection.htm");
 %>

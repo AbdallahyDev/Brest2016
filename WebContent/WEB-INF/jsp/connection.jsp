@@ -26,7 +26,7 @@ controller('AnimationControl', ['$scope', '$http', function ($scope, $http) {
 	        	$scope.erreurs = data;
 	        	if (data.res == "SUCCESS") {
 	     			//alert("success");
-	     			$scope.mess = "Client " + $scope.ticket.nom + " enregistré";
+	     			$scope.mess = "Client " + $scope.ticket.nom + " identifie";
 	     			$scope.ticket.id = "";
 	     			$http({
 	    	          method: 'GET',
@@ -51,7 +51,7 @@ controller('AnimationControl', ['$scope', '$http', function ($scope, $http) {
 </head>
 <body>
  
-<form name="form" ng-controller="AnimationControl" ng-submit="listerAnimation()" >
+<form name="form" ng-controller="TicketControl" ng-submit="identifyTicket()" >
  
  CODE TICKET :  
 			 <input id="ticket" name="ticket" type="text" value=" " 
@@ -61,10 +61,9 @@ controller('AnimationControl', ['$scope', '$http', function ($scope, $http) {
 			 		ng-pattern="/^[0-9]{1,8}$/" /> 
            <span ng-show="form.ticket.$error.pattern">Not a valid number!</span>
            <span ng-show="form.ticket.$error.required">This field is required!</span>
-        
-			 <button>Ajouter client</button> 
-		</tr>
-	</table>
+          <h1>fjdfhdjfh</h1>
+			 <button> Se connecter </button> 
+		
 
 <br />
 

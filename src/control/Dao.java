@@ -21,6 +21,15 @@ public class Dao {
 		em = emf.createEntityManager();
 	}
 	
+	public Boolean identifyTicket(int id){
+		
+		List <Ticket> lst = em.createQuery("select t from Ticket t where t.id=id ").getResultList();
+		if(lst!=null)
+			return true;
+		else
+			return false;
+	}
+	
 
 	
 	public List<Animation>listerAnimations()  {
