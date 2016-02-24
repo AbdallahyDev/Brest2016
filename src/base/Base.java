@@ -40,7 +40,7 @@ public class Base {
 		
 		Ticket t = new Ticket("x", "y"); 
 		base.em.persist(t);
-		System.out.println("id ticket = "+ t.getId());
+		System.out.println("id ticket = "+ t.getTicketId());
 		Animation a  = new  Animation("loln","animation test" ,"type test",10); 
 		Program ap = new Program(1,10,11);
 		ap.setAnimation(a);

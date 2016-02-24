@@ -59,13 +59,9 @@ public void setPrograms(Collection<Program> programs) {
 	this.programs = programs;
 }
 
-public void setId(Integer id) {
-	this.id = id;
-}
+ 
 
-public void setNbPlace(Integer nbPlace) {
-	this.nbPlace = nbPlace;
-}
+
 
 public String getName() {
 	return name;

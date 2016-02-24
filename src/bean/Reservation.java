@@ -30,7 +30,7 @@ public Integer getIdTicket() {
 }
 
 public void setIdTicket(Ticket ticket) {
-	this.idTicket = ticket.getId();
+	this.idTicket = ticket.getTicketId();
 }
 
 	

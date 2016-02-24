@@ -11,38 +11,53 @@
  <script type="text/javascript">
 
 var monApp = angular.module("monApp", []).
-controller('AnimationControl', ['$scope', '$http', function ($scope, $http) {
-	$scope.ticket = {};
-	$scope.listerAnimation = function () {
-		//alert("creerClient");
+controller('TicketControl', ['$scope', '$http', function ($scope, $http) {
+	$scope.ticket={};
+	//alert("creerClient");
+	$scope.connection = function () {
+		  alert("creerClient");
 	      $http({
-	          method: 'GET',
-	          url: 'connection.htm',
+	          method: 'POST',
+	          url: 'connection.htm', 
 	          headers: {'Content-Type': 'application/json'},
-	          data:  $scope.ticket
-	        }).success(function (data) 
+	          data:  $scope.ticket	
+	        }).success(function (data)  
 	          {
-	        	//alert("nb clients "+data.length);
+	        	alert("success ticket id: "+$scope.ticket.ticketId);
+	        	//$scope.erreurs = data;
+	        	//alert("ticket id: "+$scope.erreurs);
 	        	$scope.erreurs = data;
 	        	if (data.res == "SUCCESS") {
 	     			//alert("success");
-	     			$scope.mess = "Client " + $scope.ticket.nom + " identifie";
-	     			$scope.ticket.id = "";
+	     			$scope.mess = "Client " + $scope.ticket.ticketId + " identifie";
+	     			$scope.ticket.ticketId = "";
+	     			
 	     			$http({
 	    	          method: 'GET',
-	    	          url: 'connection.htm',
+	    	          url: 'listerAnimation.htm',
 	    	          headers: {'Content-Type': 'application/json'},
 	    	     	}).success(function (data) 
 	    	        {
 	    	        	//alert("nb clients "+data.length);
-	    	        	$scope.ticket = data;
-	    	      	});
+	    	        	$scope.programs = data;
+	    	      	})
+	    	      	.error(function (data) 
+	    	  	          {
+			        	alert("failure");
+		          });
 
-	        	}
+	        	} 
+	        	
+	          })
+	          .error(function (data) 
+	          {
+		        	alert("failure");
 	          });
-
+	      
 	};
 
+	
+//	 		ng-pattern="/^[0-9]{1,8}$/" 
 
 }]);
 
@@ -51,21 +66,37 @@ controller('AnimationControl', ['$scope', '$http', function ($scope, $http) {
 </head>
 <body>
  
-<form name="form" ng-controller="TicketControl" ng-submit="connection" >
+<form name="form" ng-controller="TicketControl" ng-submit="connection()" >
  
  CODE TICKET :  
-			 <input id="ticket" name="ticket" type="text" value=" " 
-			        ng-model="ticket.id"
+			 <input id="id" name="id" type="text" value=" " 
+			        ng-model="ticket.ticketId"
 					ng-model-options="{ updateOn: 'blur' }"
 			 		ng-required="true" 
-			 		ng-pattern="/^[0-9]{1,8}$/" /> 
-           <span ng-show="form.ticket.$error.pattern">Not a valid number!</span>
-           <span ng-show="form.ticket.$error.required">This field is required!</span>
-          <h1>fjdfhdjfh</h1>
-			 <button> Se connecter </button> 
-		
+			 		ng-pattern="/^[0-9]{2,}$/" /> 
+			 		
+			 		 
+			 	<br/>	
+           <div ng-show="form.id.$error.pattern">Not a valid number!</div>
+           <div ng-show="form.id.$error.required">This field is required!</div>
+           <br/>
+			<button> Se connecter </button> 
+			
+		 
 
 <br />
+Voici le code : {{id}}
+
+
+<br/>
+<h1>The program today</h1> 
+   <ul>
+
+		<li ng-repeat="x in programs">{{x.animation.name}} {{x.animation.type}}</li>
+	
+	
+	</ul>
+
 
 </form>
  

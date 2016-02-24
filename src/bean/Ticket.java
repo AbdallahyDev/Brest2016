@@ -1,8 +1,10 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,14 +15,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ticket")
-public class Ticket {	
+public class Ticket implements Serializable {	
 	
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)	
-Integer id;
+//@Column(name="ticketId")
+Integer ticketId;
 
-String lastName=null;   
+String lastName=null;     
 String firstName=null;
 
 
@@ -49,12 +52,12 @@ public void setAnimationReserved(Collection<Program> animationReserved) {
 }
 
 
-public void setId(Integer id) {
-	this.id = id;
+public void setTicketId(Integer id) {
+	this.ticketId = id;
 }
 
-public int getId() {
-	return id;
+public int getTicketId() {
+	return ticketId;
 }
  
 public String getLastName() {
