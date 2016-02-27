@@ -35,17 +35,17 @@ public class AnimationControl {
 		return dao.listerAnimations();
 	}*/
 
-	
+	/*
 	@RequestMapping(value="/listerAnimation")
 	public String listerAnimation(ModelMap model){
 		model.addAttribute("programs", dao.listerProgram());
 		return "listerAnimation";
-	}
-	
+	}*/
+	/*
 	@RequestMapping(value="/connection")
 	public String connection(){
 	 	return "connection";
-	}
+	}*/ 
 	
 	
 	

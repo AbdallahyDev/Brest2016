@@ -136,6 +136,9 @@ public void setAnimation(Animation animation) {
 }
 
 
- 
+ public int getFreePlace(){
+	 
+	 return animation.getNbPlace() - nbVisitor; 
+ }
 
 }

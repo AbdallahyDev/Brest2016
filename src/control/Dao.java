@@ -40,23 +40,23 @@ public class Dao {
 
 
 
-	public void identifyTicket(int id){
+	public  Ticket  identifyTicket(int id){
 		
 		System.out.println("I am in the identify method");
 		List <Ticket> lst = em.createQuery("select t from Ticket t ").getResultList();
 		for(Ticket  t: lst){
 			
 			if(t.getTicketId()==id){  
-				//System.out.println("I am in the identify method, clouse true");
+				System.out.println("I am in the identify method, clouse true");
 				identify= true;
-			}else{
-				//System.out.println("I am in the identify method clouse false");
-				identify= false;  
+				return t;
 			} 
 				  
 		}
+		
 		System.out.println("I am in the end of identify methode"+identify);
 		
+		return null;
 		
 		
 	}
