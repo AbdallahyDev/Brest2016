@@ -6,11 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Liste des Animations</title>
+
+<script type="text/javascript" src="angular.js"></script>
+ 
+<script type="text/javascript" src="jscript/cntrl.js"></script>
 </head>
 <body style="color: green;">
 	Liste des Animations
 	
-<div>
+<div ng-controller="TicketControl" >
 	<table border=1>
 		
 	<tr>
@@ -24,7 +28,7 @@
 		<td> <a href="http://localhost:8080/Brest_2016/connection.htm?id=<c:out value="${program.animation.name}" />"><c:out value="${program.animation.name}" /> </a></td>
 		<td>  <c:out value="${program.day}"/>  </td>
 		<td>  <c:out value="${program.getFreePlace()}"/>  </td>
-		<td>  <button> reserver </button>   </td>
+		<td>  <button ng-click="reserve(program)"> Reserver </button>   </td>
 	</tr>
 	</c:forEach>
 	

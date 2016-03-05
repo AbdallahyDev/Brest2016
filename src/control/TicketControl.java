@@ -28,13 +28,36 @@ public class TicketControl {
 	@Resource 
 	Dao dao;
 	
-	@RequestMapping(value="/listerAnimation")
+	@RequestMapping(value="/listerAnimation", method=RequestMethod.GET)
 	public String listerAnimation(ModelMap model){
 		List <Program> lst =dao.listerProgram();
 		//List <Boolean> lstB = new 
 		
 		model.addAttribute("programs", lst); 
 		return "listerAnimation"; 
+	}	
+	
+	@RequestMapping(value="/listerAnimation", method=RequestMethod.POST)
+	public @ResponseBody Resultat reserve(
+			@RequestBody @Valid Program prog, BindingResult bres, ModelMap m) {
+		Resultat res = convertBindingResult(bres);
+
+		if(res.getRes().equals("SUCCESS")) {
+			
+			if(prog.getFreePlace()>0){
+			System.out.println("that is my program nbpPlace:"+prog.getNbVisitor());
+			dao.addAnimToTicket(prog, ticket);
+			dao.addTicketToAnim(prog, ticket);
+			prog.setNbVisitor(prog.getNbVisitor()-1);
+			System.out.println("great, it's working!!");
+			}else{
+				res.setRes("FAIL");
+				return res;   
+			}
+		
+		} 
+		
+		return res;   
 	}	
 
     

@@ -61,7 +61,18 @@ public class Dao {
 		
 	}
 	
- 
+	public void addAnimToTicket(Program prog, Ticket t){
+		
+		t.getAnimationReserved().add(prog);
+		
+		
+	} 
+	
+	public void addTicketToAnim(Program prog, Ticket t){
+		
+		prog.getTicketReserved().add(t);
+		
+	}
 	
 	public List<Animation>listerAnimations()  {
 		List <Animation> lst = em.createQuery("select t from Animation t").getResultList();

@@ -31,6 +31,7 @@ String firstName=null;
 private Collection<Program> animationReserved = new ArrayList<>();
 
 public Ticket() {
+	animationReserved = new ArrayList<>();
 }
 
 

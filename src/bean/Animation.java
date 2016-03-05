@@ -22,7 +22,7 @@ Integer id;
 private String name =null; 
 
 private String description=null; 
-Integer nbPlace; 
+private Integer nbPlace; 
 
 private String type=null; 
 

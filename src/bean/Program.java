@@ -46,12 +46,15 @@ Integer idAnimation;
 Integer nbVisitor= 0; 
 
 public Program() {
+	
+	ticketReserved = new ArrayList<>();
+	animation = new Animation();
  
 }
 
 
 public Program(Integer day, Integer startTime, Integer endTime) {
-	super();
+	super(); 
 	this.day = day;
 	this.startTime = startTime;
 	this.endTime = endTime;
@@ -136,9 +139,9 @@ public void setAnimation(Animation animation) {
 }
 
 
- public int getFreePlace(){
+ public int getFreePlace(){ 
 	 
-	 return animation.getNbPlace() - nbVisitor; 
+	 return (animation.getNbPlace() - nbVisitor); 
  }
 
 }
