@@ -61,7 +61,7 @@ public class Dao {
 		
 	}
 	
-
+ 
 	
 	public List<Animation>listerAnimations()  {
 		List <Animation> lst = em.createQuery("select t from Animation t").getResultList();

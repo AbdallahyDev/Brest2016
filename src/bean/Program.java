@@ -38,7 +38,7 @@ Integer idAnimation;
 		)
 @JoinTable(name = "reservation", joinColumns = { 
 		@JoinColumn(name = "idAnimation", nullable = false, updatable = false) }, 
-		inverseJoinColumns = { @JoinColumn(name = "idTicket", 
+		inverseJoinColumns = { @JoinColumn(name = "idTicket",  
 				nullable = false, updatable = false) })
 	private Collection<Ticket> ticketReserved = new ArrayList<>();
 
